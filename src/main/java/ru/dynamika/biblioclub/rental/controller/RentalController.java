@@ -3,10 +3,10 @@ package ru.dynamika.biblioclub.rental.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import ru.dynamika.biblioclub.rental.dto.RentalDto;
 import ru.dynamika.biblioclub.rental.model.Rental;
 import ru.dynamika.biblioclub.rental.service.RentalService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class RentalController {
-    private RentalService service;
+    private final RentalService service;
 
     @PostMapping("/{bookId}")
     public Rental createRental(@RequestHeader("X-User-Header") long userId,
@@ -23,7 +23,7 @@ public class RentalController {
     }
 
     @GetMapping
-    public List<Rental> getAllRental() {
+    public List<RentalDto> getAllRental() {
         return service.getAllRental();
     }
 }

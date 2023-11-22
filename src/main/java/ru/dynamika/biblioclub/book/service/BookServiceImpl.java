@@ -43,7 +43,7 @@ public class BookServiceImpl implements BookService {
         return bookStorage.findAll();
     }
 
-    private Book checkExistsBook(long bookId) {
+    public Book checkExistsBook(long bookId) {
         Optional<Book> optBook = bookStorage.findById(bookId);
 
         if (optBook.isEmpty()) {

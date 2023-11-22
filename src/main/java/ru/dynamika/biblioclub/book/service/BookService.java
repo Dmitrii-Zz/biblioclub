@@ -10,4 +10,6 @@ public interface BookService {
     Book updateBook(Book book, long bookId);
 
     List<Book> getAllBook();
+
+    Book checkExistsBook(long bookId);
 }

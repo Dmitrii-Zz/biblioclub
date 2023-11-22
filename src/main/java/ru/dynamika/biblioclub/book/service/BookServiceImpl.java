@@ -1,4 +1,29 @@
 package ru.dynamika.biblioclub.book.service;
 
-public class BookService {
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import ru.dynamika.biblioclub.book.model.Book;
+import ru.dynamika.biblioclub.book.repository.BookRepository;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class BookServiceImpl implements BookService {
+    private BookRepository bookStorage;
+
+    @Override
+    public Book createBook(Book book) {
+        return null;
+    }
+
+    @Override
+    public Book updateBook(Book book, long bookId) {
+        return null;
+    }
+
+    @Override
+    public List<Book> getAllBook() {
+        return null;
+    }
 }

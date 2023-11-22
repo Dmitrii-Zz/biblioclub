@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         return userStorage.findAll();
     }
 
-    private User checkUser(long userId) {
+    public User checkUser(long userId) {
         Optional<User> optUser = userStorage.findById(userId);
 
         if (optUser.isEmpty()) {

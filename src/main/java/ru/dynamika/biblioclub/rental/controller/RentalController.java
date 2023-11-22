@@ -1,2 +1,4 @@
-package ru.dynamika.biblioclub.rental.controller;public class RentalController {
+package ru.dynamika.biblioclub.rental.controller;
+
+public class RentalController {
 }

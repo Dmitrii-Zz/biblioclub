@@ -1,6 +1,5 @@
 package ru.dynamika.biblioclub.book.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class Book {
 
-    @Column
+    @Column(name = "book_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

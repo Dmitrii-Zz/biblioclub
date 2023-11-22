@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PatchMapping("/{userId}")
-    public User updateUser(@Valid @RequestBody User user, long userId) {
+    public User updateUser(@Valid @RequestBody User user, @PathVariable long userId) {
         log.info("Запрос на обновление юзера: " + userId);
         return null;
     }

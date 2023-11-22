@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.dynamika.biblioclub.book.controller.BookController;
 import ru.dynamika.biblioclub.book.model.Book;
+import ru.dynamika.biblioclub.rental.controller.RentalController;
+import ru.dynamika.biblioclub.rental.dto.RentalDto;
+import ru.dynamika.biblioclub.rental.model.Rental;
 import ru.dynamika.biblioclub.user.controller.UserController;
 import ru.dynamika.biblioclub.user.model.User;
 
@@ -20,6 +23,7 @@ class BiblioclubApplicationTests {
 
 	private final UserController userController;
 	private final BookController bookController;
+	private final RentalController rentalController;
 
 	@Test
 	void contextLoads() {
@@ -69,5 +73,17 @@ class BiblioclubApplicationTests {
 				() -> assertEquals(1, updateBook.getId()),
 				() -> assertEquals("Рассказы", updateBook.getName()),
 				() -> assertEquals("889-87", updateBook.getISBN()));
+
+		Rental rental = rentalController.createRental(1, 1);
+
+		assertAll("Проверка создания rental",
+				() -> assertEquals(1, rental.getId()),
+				() -> assertEquals(1, rental.getUser().getId()),
+				() -> assertEquals(1, rental.getBook().getId()),
+				() -> assertEquals(LocalDate.now(), rental.getDateRental()));
+
+		List<RentalDto> rentalList = rentalController.getAllRental();
+
+		assertEquals(1, rentalList.size());
 	}
 }

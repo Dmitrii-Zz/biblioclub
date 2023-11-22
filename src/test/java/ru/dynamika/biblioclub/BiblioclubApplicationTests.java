@@ -55,6 +55,19 @@ class BiblioclubApplicationTests {
 		assertAll("Проверка создания книги",
 				() -> assertEquals(1, bookSave.getId()));
 
-	}
+		List<Book> books = bookController.getAllBook();
 
+		assertEquals(1, books.size());
+
+		book.setName("Рассказы");
+		book.setAuthor("Неизвестный автор");
+		book.setISBN("889-87");
+
+		Book updateBook = bookController.updateBook(book, 1);
+
+		assertAll("Проверка обновления книги",
+				() -> assertEquals(1, updateBook.getId()),
+				() -> assertEquals("Рассказы", updateBook.getName()),
+				() -> assertEquals("889-87", updateBook.getISBN()));
+	}
 }

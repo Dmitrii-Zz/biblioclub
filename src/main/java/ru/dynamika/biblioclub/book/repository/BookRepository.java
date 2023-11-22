@@ -1,2 +1,4 @@
-package ru.dynamika.biblioclub.book.repository;public interface BookRepository {
+package ru.dynamika.biblioclub.book.repository;
+
+public interface BookRepository {
 }

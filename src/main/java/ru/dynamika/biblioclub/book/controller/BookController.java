@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class BookController {
-    private BookService service;
+    private final BookService service;
 
     @PostMapping
     public Book createBook(@Valid @RequestBody Book book) {

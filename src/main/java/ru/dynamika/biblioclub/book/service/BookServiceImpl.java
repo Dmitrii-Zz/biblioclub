@@ -10,11 +10,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
-    private BookRepository bookStorage;
+    private final BookRepository bookStorage;
 
     @Override
     public Book createBook(Book book) {
-        return null;
+        return bookStorage.save(book);
     }
 
     @Override

@@ -1,4 +1,14 @@
 package ru.dynamika.biblioclub.user.service;
 
-public class UserService {
+import ru.dynamika.biblioclub.user.model.User;
+
+import java.util.List;
+
+public interface UserService {
+
+    User createUser(User user);
+
+    User updateUser(User user, long userId);
+
+    List<User> getAllUsers();
 }

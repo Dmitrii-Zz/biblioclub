@@ -10,11 +10,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    private UserRepository userStorage;
+    private final UserRepository userStorage;
 
     @Override
     public User createUser(User user) {
-        return null;
+        return userStorage.save(user);
     }
 
     @Override

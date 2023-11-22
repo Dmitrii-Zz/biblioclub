@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import ru.dynamika.biblioclub.user.model.User;
 import ru.dynamika.biblioclub.user.service.UserService;
-import ru.dynamika.biblioclub.user.service.UserServiceImpl;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
-    private UserService service;
+    private final UserService service;
 
     @PostMapping
     public User createUser(@Valid @RequestBody User user) {

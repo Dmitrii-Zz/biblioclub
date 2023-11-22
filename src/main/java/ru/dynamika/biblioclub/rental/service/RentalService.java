@@ -1,4 +1,11 @@
 package ru.dynamika.biblioclub.rental.service;
 
-public class RentalService {
+import ru.dynamika.biblioclub.rental.model.Rental;
+
+import java.util.List;
+
+public interface RentalService {
+
+    List<Rental> getAllRental();
+
 }

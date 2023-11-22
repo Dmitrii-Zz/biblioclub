@@ -8,4 +8,6 @@ public interface RentalService {
 
     List<Rental> getAllRental();
 
+    Rental createRental(long userId, long bookId);
+
 }

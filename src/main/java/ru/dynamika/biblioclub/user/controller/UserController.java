@@ -1,2 +1,5 @@
-package ru.dynamika.biblioclub.user.controller;public class UserController {
+package ru.dynamika.biblioclub.user.controller;
+
+public class UserController {
+    
 }

@@ -1,2 +1,4 @@
-package ru.dynamika.biblioclub.user.repository;public interface UserReository {
+package ru.dynamika.biblioclub.user.repository;
+
+public interface UserReository {
 }

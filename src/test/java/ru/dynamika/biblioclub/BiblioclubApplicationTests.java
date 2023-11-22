@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.dynamika.biblioclub.book.controller.BookController;
+import ru.dynamika.biblioclub.book.model.Book;
 import ru.dynamika.biblioclub.user.controller.UserController;
 import ru.dynamika.biblioclub.user.model.User;
 
@@ -17,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BiblioclubApplicationTests {
 
 	private final UserController userController;
+	private final BookController bookController;
 
 	@Test
 	void contextLoads() {
@@ -26,7 +29,7 @@ class BiblioclubApplicationTests {
 		User userSave = userController.createUser(user);
 
 		assertAll("Проверка создания юзера",
-				() -> assertEquals(1, user.getId()));
+				() -> assertEquals(1, userSave.getId()));
 
 		List<User> users = userController.getAllUser();
 
@@ -41,6 +44,16 @@ class BiblioclubApplicationTests {
 				() -> assertEquals(1, userUpdate.getId()),
 				() -> assertEquals("Николай Николаевич Николаенко", userUpdate.getName()),
 				() -> assertEquals(LocalDate.of(1970, 5, 15), userUpdate.getBirthday()));
+
+		Book book = new Book();
+		book.setName("Степь");
+		book.setAuthor("Антон Чехов");
+		book.setISBN("234-2323");
+
+		Book bookSave = bookController.createBook(book);
+
+		assertAll("Проверка создания книги",
+				() -> assertEquals(1, bookSave.getId()));
 
 	}
 
